@@ -1,3 +1,7 @@
 import OrdersList from './OrdersList';
+import OrderForm from './OrderForm';
 
-export default OrdersList;
+export {
+  OrdersList,
+  OrderForm,
+};

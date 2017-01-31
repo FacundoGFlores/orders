@@ -1,3 +1,4 @@
 import CustomTable from './CustomTable';
+import SelectInput from './SelectInput';
 
-export default CustomTable;
+export { CustomTable, SelectInput };

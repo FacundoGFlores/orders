@@ -8,7 +8,7 @@ const App = props => (
       <section className="navbar-section">
         <Link to="#" className="btn">Home</Link>
         <Link to="orderslist" className="btn">Orders List</Link>
-        <Link to="randomroute" className="btn">New Order</Link>
+        <Link to="neworder" className="btn">New Order</Link>
       </section>
     </header>
     <div className="container">
