@@ -1,5 +1,5 @@
 import React from 'react';
-import CustomTable from '../../shared';
+import { CustomTable } from '../../shared';
 
 const Columns = [
   {

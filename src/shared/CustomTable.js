@@ -24,16 +24,17 @@ const CustomTable = props => (
   </table>
 );
 
+CustomTable.defaultProps = {
+  name: '',
+  cols: [],
+  rows: [],
+};
+
 CustomTable.propTypes = {
   name: React.PropTypes.string.isRequired,
   cols: React.PropTypes.arrayOf(React.PropTypes.object),
   rows: React.PropTypes.arrayOf(React.PropTypes.object),
 };
 
-CustomTable.defaultProps = {
-  name: '',
-  cols: [],
-  rows: [],
-};
 
 export default CustomTable;
