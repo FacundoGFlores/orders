@@ -1,5 +1,9 @@
 import React from 'react';
-import { SelectInput } from '../../shared';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { SelectInput } from '../../../shared';
+import addOrder from '../orderActions';
+
 
 class OrderForm extends React.Component {
   constructor(props) {
@@ -11,16 +15,24 @@ class OrderForm extends React.Component {
   }
 
   handleFood = (v) => {
-    this.state.food = v;
+    this.setState({
+      food: v,
+    });
   }
 
   handleQuantity = (v) => {
-    this.state.quantity = v.target.value;
+    this.setState({
+      quantity: v.target.value,
+    });
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state);
+    const order = {
+      food: this.state.food,
+      quantity: this.state.quantity,
+    };
+    this.props.addOrder(order);
   }
 
   render() {
@@ -47,4 +59,15 @@ class OrderForm extends React.Component {
   }
 }
 
-export default OrderForm;
+OrderForm.propTypes = {
+  addOrder: React.PropTypes.func.isRequired,
+};
+
+const mapStateToProps = state => ({
+  orders: state.orders,
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators({ addOrder }, dispatch);
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(OrderForm);
